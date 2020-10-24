@@ -1,6 +1,5 @@
 package com.vacancy.notification_service.config;
 
-import lombok.Getter;
 import lombok.Setter;
 import org.springframework.amqp.core.*;
 import org.springframework.amqp.support.converter.Jackson2JsonMessageConverter;
@@ -14,15 +13,15 @@ import org.springframework.context.annotation.Configuration;
 @Setter
 public class RabbitMQConfig {
     private String receiveQueueName;
-    private String receiveExchange;
-    private String receiveRoutingKey;
+    /*private String receiveExchange;
+    private String receiveRoutingKey;*/
 
     @Bean
     Queue receiveQueue() {
         return new Queue(receiveQueueName);
     }
 
-    @Bean
+   /* @Bean
     DirectExchange directExchange() {
         return ExchangeBuilder.directExchange(receiveExchange)
                 .build();
@@ -31,7 +30,7 @@ public class RabbitMQConfig {
     @Bean
     Binding binding() {
         return BindingBuilder.bind(receiveQueue()).to(directExchange()).with(receiveRoutingKey);
-    }
+    }*/
 
     @Bean
     public MessageConverter jsonMessageConverter() {

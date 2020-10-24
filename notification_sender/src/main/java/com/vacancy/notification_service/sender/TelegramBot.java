@@ -22,8 +22,8 @@ import javax.annotation.PostConstruct;
 public class TelegramBot extends TelegramLongPollingBot {
 
     //TODO: move to properties
-    private String TELEGRAM_BOT_NAME = "java_position_sender_test_bot";
-    private String TELEGRAM_BOT_TOKEN = "1178890242:AAEqVpKs_fx8miC_QERngbhVM76wvApjwfg";
+    private String TELEGRAM_BOT_NAME = "";
+    private String TELEGRAM_BOT_TOKEN = "";
     private String MESSAGER_TYPE = "Telegram";
 
     private ResponseService responseService;
