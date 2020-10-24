@@ -1,0 +1,4 @@
+rabbitmq:
+  receiveQueueName: notification-queue
+  receiveExchange: notification-exchange
+  receiveRoutingKey: notification-routing-key
