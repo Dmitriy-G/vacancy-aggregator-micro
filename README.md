@@ -1,1 +1,1 @@
-[![Build Status](https://travis-ci.com/github/Dmitriy-G/vacancy-aggregator-micro.svg?branch=master)](https://travis-ci.com/github/Dmitriy-G/vacancy-aggregator-micro)
+[![Build Status](https://travis-ci.com/Dmitriy-G/vacancy-aggregator-micro.svg?branch=master)](https://travis-ci.com/github/Dmitriy-G/vacancy-aggregator-micro)
