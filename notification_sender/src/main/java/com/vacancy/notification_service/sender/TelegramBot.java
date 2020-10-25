@@ -62,6 +62,7 @@ public class TelegramBot extends TelegramLongPollingBot {
             case "subscribe": {
                 String message = "You was added to subscribers";
                 sendMsg(chatId, message);
+                break;
             }
             case "stop": {
                 String message = "You was removed from subscribers";
