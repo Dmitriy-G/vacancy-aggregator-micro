@@ -1,10 +1,15 @@
-version: '3'
+version: '2.2'
 services:
   rabbitmq:
     image: rabbitmq:management
     ports:
       - "5672:5672"
       - "15672:15672"
+    healthcheck:
+      test: rabbitmq-diagnostics -q ping
+      interval: 5s
+      timeout: 15s
+      retries: 10
   mongodb:
     image: mongo:latest
     environment:
@@ -21,7 +26,8 @@ services:
       APP_MQ_USER: guest
       APP_MQ_PASSWORD: guest
     depends_on:
-      - rabbitmq
+      rabbitmq:
+        condition: service_healthy
   notification-sender:
     build: notification_sender
     ports:
@@ -31,4 +37,5 @@ services:
       APP_MQ_USER: guest
       APP_MQ_PASSWORD: guest
     depends_on:
-      - rabbitmq
+      rabbitmq:
+        condition: service_healthy
