@@ -9,10 +9,10 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.vacancy</groupId>
-    <artifactId>vacancy-aggregator</artifactId>
+    <artifactId>vacancy-aggregator-micro</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>pom</packaging>
-    <name>vacancy-aggregator</name>
+    <name>vacancy-aggregator-micro</name>
     <description>Main pom file</description>
 
     <properties>
