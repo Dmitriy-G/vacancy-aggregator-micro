@@ -1,5 +1,11 @@
 language: java
+addons:
+  sonarcloud:
+    organization: "dmitriy-g"
+    token:
+      secure: "QlDLdJXmJhA6H9OLhfxBXdz9LNpz+Gnnc+crtbQFV2dkjELyRYQpIHzJElZYd0hUxT5DAPT3G4lF5e7sJePvVwlppkkSuv86vqy7X1jh/6ritjYyMAHi1bJYXrao3GQ0JOJ1vqe/s9yoI4YPwMhozNavpDGr3RTz8HDClSZ6j9obIF43OwNjE4z5HEsvpOFJdwWlIORcra6NwljJy51ckJuTP1/LGfj9eBQQPon13Xg389rFaa3CtFx5gE2ugm+FVwRLTB71gHTvsJ1+OxW9DB/4ywhrsVJ0DWUKjpnwdg2OKlnMPQ0VIvDY5lw2vDWP6g3f4tlC4fbTCLZ/NjdmBM9kDUCqGoefqUJwj+aXq9UQEhaI4YL2/HevZ9hhK6sf0dk04rd4Daf/skASSxHY0PJAlxoNFqmf3Wcq8sZMj7KQhSc26KcHmoGRO7DY7OM2ajTUAhS9bBnFQojhhFLPwvHEk5DwVmvqJjg8NeNOpb15Jc5XEd/TumfD3Odz1DOp4tOqjTmYeOvQKM2GJAOKpJ0JaliBhjxAwOVSg8ql4d5ucnbHhJrIqCkebrv4HW0pPpdP0WiiI4U420RZenF0Mb6ivI4qwpm1gM020mQP3tRZest75WaxZDEIfoAeTdBZqyGtiNpuS1q6lt/d/KmQ/Epp/D0yOMlRqYCXpl85bss=" # encrypted value of your token
 script:
-  - mvn clean package
+  # the following command line builds the project, runs the tests with coverage and then execute the SonarCloud analysis
+  - mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install sonar:sonar -Dsonar.projectKey=Dmitriy-G_vacancy-aggregator-micro
 after_success:
   - bash <(curl -s https://codecov.io/bash)
