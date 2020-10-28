@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>com.vacancy</groupId>
-        <artifactId>vacancy-aggregator</artifactId>
+        <artifactId>vacancy-aggregator-micro</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
     <artifactId>vacancy_aggregator_core</artifactId>
