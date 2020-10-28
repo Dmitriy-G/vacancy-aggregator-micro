@@ -20,6 +20,12 @@
         <spring-cloud.version>Finchley.RELEASE</spring-cloud.version>
         <java.version>11</java.version>
         <sonar.projectKey>Dmitriy-G_vacancy-aggregator-micro</sonar.projectKey>
+        <sonar.moduleKey>
+            com.vacancy:vacancy_aggregator_core
+        </sonar.moduleKey>
+        <sonar.moduleKey>
+            com.vacancy:notification_sender
+        </sonar.moduleKey>
         <sonar.organization>dmitriy-g</sonar.organization>
         <sonar.host.url>https://sonarcloud.io</sonar.host.url>
     </properties>
