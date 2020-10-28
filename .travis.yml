@@ -2,8 +2,8 @@ language: java
 addons:
   sonarcloud:
     organization: "dmitriy-g"
-    token: ${{ secrets.SONAR_TOKEN }}
+    token: "Q4x4iUaz+sTca47hiUPUkcjtlruC24DeKvUtba0Wl4ow2fqdaJXFj3AQ07UUZjFkC1l7bu8uRpq7vChZcSHlZudubpjr5ljOaizjmRQ4qSl4dByQjWvbdvdKd97EteaFROQsetmVcOMoqUey0duU9B+nfVrM6O3Cxq3AB5OvSIXyUmXpeFDLVNRWkiQaCP9CdHJGT7Cj2BU7McOdcI5WMQR/rcBjZn+Ch06bvc7yttsh3UWW8ttWRCx1ShvJYPaJ7NrHapy+zlQKkD+vcf+hh2ssBY7iDgtp+aCMhT/6ZfdAA24sSudRGPboS73XtC5giqio85C3u/HQPjSHn2fNr72DJ7iwcxJ47+D6XLCvEFP0xw5rL33ONlKMnWGL93MmAPXrR1/xfztRzwwXj1SfzLf3IdGA0Ps+gQ3NOSnw4jubQbUQIALCpSfbSRXKzY+UYO1oVACxndQcLV0SyX+14gBDDfS8ylXkLBNEtTt4HqX+uUnVv/1oSUAXOHs0S3xbPbgSReYr3HmROZ+lxf9De6J0XzAfh2Wnx4139nFGQbUveGCd5/6+9bE8eU2+BasVTdzhYFEC7Ge1WKQHBp4iVW2sTdn7+GepO4RlLfjabztT6g9xVuAuaJOu2WztW29gMLGSDeh3UhdcMb5n1lIlAvzWFApIecSIlcrP8dw/QtQ="
 script:
-  - mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=Dmitriy-G_vacancy-aggregator-micro -Dsonar.exclusions=**/*.xml -X
+  - mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install sonar:sonar-maven-plugin:sonar -Dsonar.projectKey=Dmitriy-G_vacancy-aggregator-micro
 after_success:
   - bash <(curl -s https://codecov.io/bash)
