@@ -2,7 +2,7 @@ language: java
 addons:
   sonarcloud:
     organization: "dmitriy-g"
-    token: "h3SulzGKJq9pUXNJmu6Oc33HXkEHpBl60zMAMRpkeB6voBdJ583mZdgSCMdHK8cobV0gpgpKXrClHNdMRnqB7Rna5AXImJzVB+NGtxxxcvJOyRUM3fKplehJx05Yhd3IQ73Au/CIK/1jWPuogOGc/EzVeTBvk5G3x5ROKd023yqtOu8BNRsf34hGbAPhVEaUY2VtCaKEgAVfrAh8wvGoaaWTqJXX3hPi27Xb9HMPuyzcJB+XDIJbuGJCTJ/K+KCUkcrq1SJOtRO4pmxVBsFnkBsILncXdgOtSAt8ioKCgY045moZaFBiKni5+bDZLYH787wxcgDAM977QHwj0fW14wtZv5LDQfw9muvelA8o7c4vko2G7gkY53xg3jo/zZaC4tqSfNQ25hRguI17gxJMXcwsy8HiGApX+5SbrTu8pnp3x5iOYnWxvWHKhsQN2V93az36iTRtDJG5oysojaHTB8XPFIhZxfWCP1kb82I0fFJfWkJ3c5QM1ZTatmJtzUejoqJMXrsg/3g+eyyLYrZ9MrF1oMbjZHiWkc0HQuQ+KgggNscuiagC3prPOXpj81k4x793Pv8af7/BrjOKRO5/AZp4zdPosBhExK5RYRQ62GdkJo5sXasNVLzmA0gE+KF9CA/fnVP8JGUTHzFQnJTYBRkp1vzidcRdlcm1FR2zlok="
+    token: ${{ secrets.SONAR_TOKEN }}
 script:
   - mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install sonar:sonar -Dsonar.projectKey=Dmitriy-G_vacancy-aggregator-micro
 after_success:
