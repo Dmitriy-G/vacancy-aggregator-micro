@@ -35,6 +35,6 @@ jobs:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar
       - name: Uploads code coverage to codecov
-              uses: codecov/codecov-action@v1
-              with:
-               file: target/site/jacoco/jacoco.xml
+        uses: codecov/codecov-action@v1
+        with:
+         file: target/site/jacoco/jacoco.xml
