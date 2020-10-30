@@ -21,15 +21,7 @@
         <java.version>11</java.version>
         <sonar.organization>dmitriy-g</sonar.organization>
         <sonar.host.url>https://sonarcloud.io</sonar.host.url>
-        <sonar.projectKey>Dmitriy-G_vacancy-aggregator-micro-${project.groupId}:${project.artifactId}</sonar.projectKey>
-
-        <!--<vacancy_aggregator_core.sonar.sources>src/main/java</vacancy_aggregator_core.sonar.sources>
-        <vacancy_aggregator_core.sonar.tests>src/test/java</vacancy_aggregator_core.sonar.tests>
-        <vacancy_aggregator_core.sonar.projectBaseDir>.</vacancy_aggregator_core.sonar.projectBaseDir>-->
-
-        <sonar.exclusions>
-            **/*.xml
-        </sonar.exclusions>
+        <sonar.projectKey>Dmitriy-G_vacancy-aggregator-micro</sonar.projectKey>
     </properties>
 
     <build>
