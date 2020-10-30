@@ -24,7 +24,7 @@
         <sonar.projectKey>Dmitriy-G_vacancy-aggregator-micro</sonar.projectKey>
         <!--<sonar.modules>
             notification_sender, vacancy_aggregator_core
-        </sonar.modules>
+        </sonar.modules>-->
 
         <notification_sender.sonar.sources>src/main/java</notification_sender.sonar.sources>
         <notification_sender.sonar.tests>src/test/java</notification_sender.sonar.tests>
@@ -32,7 +32,7 @@
 
         <vacancy_aggregator_core.sonar.sources>src/main/java</vacancy_aggregator_core.sonar.sources>
         <vacancy_aggregator_core.sonar.tests>src/test/java</vacancy_aggregator_core.sonar.tests>
-        <vacancy_aggregator_core.sonar.projectBaseDir>.</vacancy_aggregator_core.sonar.projectBaseDir>-->
+        <vacancy_aggregator_core.sonar.projectBaseDir>.</vacancy_aggregator_core.sonar.projectBaseDir>
 
         <sonar.exclusions>
             **/*.xml
@@ -44,6 +44,11 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>org.sonarsource.scanner.maven</groupId>
+                <artifactId>sonar-maven-plugin</artifactId>
+                <version>3.4.0.905</version>
             </plugin>
         </plugins>
     </build>
