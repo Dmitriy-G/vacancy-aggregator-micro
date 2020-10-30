@@ -15,9 +15,6 @@
 
     <properties>
         <java.version>11</java.version>
-        <sonar.moduleKey>
-            com.vacancy:notification_sender
-        </sonar.moduleKey>
     </properties>
 
     <dependencies>
