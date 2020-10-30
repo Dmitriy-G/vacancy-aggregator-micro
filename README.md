@@ -1,2 +1,2 @@
-![Build Status](https://github.com/Dmitriy-G/vacancy-aggregator-micro/workflows/Build/badge.svg)
+![.github/workflows/build.yml](https://github.com/Dmitriy-G/vacancy-aggregator-micro/workflows/.github/workflows/build.yml/badge.svg)
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=Dmitriy-G_vacancy-aggregator-micro&metric=alert_status)](https://sonarcloud.io/dashboard?id=Dmitriy-G_vacancy-aggregator-micro)[![codecov](https://codecov.io/gh/Dmitriy-G/vacancy-aggregator-micro/branch/master/graph/badge.svg?token=PD181AHNXA)](https://codecov.io/gh/Dmitriy-G/vacancy-aggregator-micro/)
