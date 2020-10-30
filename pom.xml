@@ -21,6 +21,21 @@
         <java.version>11</java.version>
         <sonar.organization>dmitriy-g</sonar.organization>
         <sonar.host.url>https://sonarcloud.io</sonar.host.url>
+        <!--<sonar.modules>
+            notification_sender, vacancy_aggregator_core
+        </sonar.modules>
+
+        <notification_sender.sonar.sources>src/main/java</notification_sender.sonar.sources>
+        <notification_sender.sonar.tests>src/test/java</notification_sender.sonar.tests>
+        <notification_sender.sonar.projectBaseDir>.</notification_sender.sonar.projectBaseDir>
+
+        <vacancy_aggregator_core.sonar.sources>src/main/java</vacancy_aggregator_core.sonar.sources>
+        <vacancy_aggregator_core.sonar.tests>src/test/java</vacancy_aggregator_core.sonar.tests>
+        <vacancy_aggregator_core.sonar.projectBaseDir>.</vacancy_aggregator_core.sonar.projectBaseDir>-->
+
+        <sonar.exclusions>
+            **/*.xml
+        </sonar.exclusions>
     </properties>
 
     <build>
