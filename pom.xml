@@ -51,6 +51,7 @@
     </dependencyManagement>
 
     <modules>
+        <module>auth_service</module>
         <module>notification_sender</module>
         <module>vacancy_aggregator_core</module>
     </modules>
