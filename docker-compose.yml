@@ -73,8 +73,8 @@ services:
       NOTIFICATION_QUEUE_NAME: notification-queue
       NOTIFICATION_EXCHANGE: notification-exchange
       NOTIFICATION_ROUTING_KEY: notification-routing-key
-      TELEGRAM_BOT_NAME: java_position_sender_test_bot
-      TELEGRAM_TOKEN: 1178890242:AAEqVpKs_fx8miC_QERngbhVM76wvApjwfg
+      TELEGRAM_BOT_NAME: ${{ secrets.TELEGRAM_BOT_NAME }}
+      TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
     depends_on:
       rabbitmq:
         condition: service_healthy
