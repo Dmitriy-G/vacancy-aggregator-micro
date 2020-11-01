@@ -28,8 +28,25 @@ services:
       POSTGRES_PASSWORD: password
     ports:
       - "5432:5432"
+    restart: always
     volumes:
       - keycloak-data-volume:/var/lib/postgresql/data
+
+  keycloak:
+    image: quay.io/keycloak/keycloak:11.0.2
+    environment:
+      DB_VENDOR: "POSTGRES"
+      DB_ADDR: keycloakdb
+      DB_PORT: 5432
+      DB_USER: keycloak
+      DB_PASSWORD: password
+      #KEYCLOAK_USER: admin
+      #KEYCLOAK_PASSWORD: password
+    ports:
+      - "8080:8080"
+    restart: always
+    depends_on:
+      - keycloakdb
 
   vacancy_aggregator_core:
     build: vacancy_aggregator_core
@@ -56,8 +73,8 @@ services:
       NOTIFICATION_QUEUE_NAME: notification-queue
       NOTIFICATION_EXCHANGE: notification-exchange
       NOTIFICATION_ROUTING_KEY: notification-routing-key
-      TELEGRAM_BOT_NAME: ${{ secrets.TELEGRAM_BOT_NAME }}
-      TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
+      TELEGRAM_BOT_NAME: java_position_sender_test_bot
+      TELEGRAM_TOKEN: 1178890242:AAEqVpKs_fx8miC_QERngbhVM76wvApjwfg
     depends_on:
       rabbitmq:
         condition: service_healthy
