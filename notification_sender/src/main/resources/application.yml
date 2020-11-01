@@ -1,7 +1,12 @@
 rabbitmq:
-  receiveQueueName: notification-queue
-  receiveExchange: notification-exchange
-  receiveRoutingKey: notification-routing-key
+  receiveQueueName: ${NOTIFICATION_QUEUE_NAME:notification-queue}
+  receiveExchange: ${NOTIFICATION_EXCHANGE:notification-exchange}
+  receiveRoutingKey: ${NOTIFICATION_ROUTING_KEY:notification-routing-key}
+
+telegram:
+  telegramBotName: ${TELEGRAM_BOT_NAME}
+  telegramBotToken: ${TELEGRAM_TOKEN}
+  type: Telegram
 
 spring:
   rabbitmq:

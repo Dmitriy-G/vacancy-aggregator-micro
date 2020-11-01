@@ -33,7 +33,7 @@ public class RabotaUAVacancyMonitor implements Monitor {
     }
 
     //TODO: set delay via config
-    @Scheduled(fixedDelay = 60000)
+    @Scheduled(fixedDelay = 240000)
     @Override
     public void monitoring() {
         log.info("Start vacancy monitor for " + source.getUrl());

@@ -1,7 +1,7 @@
 rabbitmq:
-  queueName: notification-queue
-  exchange: notification-exchange
-  routingKey: notification-routing-key
+  queueName: ${NOTIFICATION_QUEUE_NAME:notification-queue}
+  exchange: ${NOTIFICATION_EXCHANGE:notification-exchange}
+  routingKey: ${NOTIFICATION_ROUTING_KEY:notification-routing-key}
 
 spring:
   rabbitmq:

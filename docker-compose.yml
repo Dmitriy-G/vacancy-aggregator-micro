@@ -17,6 +17,20 @@ services:
       MONGO_INITDB_ROOT_PASSWORD: 1234
     ports:
       - "27017:27017"
+    volumes:
+      - mongo-data-volume:/var/lib/mongo/data
+
+  keycloakdb:
+    image: postgres
+    environment:
+      POSTGRES_DB: keycloak
+      POSTGRES_USER: keycloak
+      POSTGRES_PASSWORD: password
+    ports:
+      - "5432:5432"
+    volumes:
+      - keycloak-data-volume:/var/lib/postgresql/data
+
   vacancy_aggregator_core:
     build: vacancy_aggregator_core
     ports:
@@ -25,6 +39,9 @@ services:
       APP_MQ_HOST: rabbitmq
       APP_MQ_USER: guest
       APP_MQ_PASSWORD: guest
+      NOTIFICATION_QUEUE_NAME: notification-queue
+      NOTIFICATION_EXCHANGE: notification-exchange
+      NOTIFICATION_ROUTING_KEY: notification-routing-key
     depends_on:
       rabbitmq:
         condition: service_healthy
@@ -36,6 +53,17 @@ services:
       APP_MQ_HOST: rabbitmq
       APP_MQ_USER: guest
       APP_MQ_PASSWORD: guest
+      NOTIFICATION_QUEUE_NAME: notification-queue
+      NOTIFICATION_EXCHANGE: notification-exchange
+      NOTIFICATION_ROUTING_KEY: notification-routing-key
+      TELEGRAM_BOT_NAME: ${{ secrets.TELEGRAM_BOT_NAME }}
+      TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
     depends_on:
       rabbitmq:
         condition: service_healthy
+
+volumes:
+  keycloak-data-volume:
+    external: true
+  mongo-data-volume:
+    external: true

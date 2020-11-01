@@ -2,9 +2,12 @@ package com.vacancy.notification_service.sender;
 
 import com.vacancy.notification_service.model.Notification;
 import com.vacancy.notification_service.service.ResponseService;
+import lombok.Setter;
 import lombok.SneakyThrows;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.context.annotation.Configuration;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
 import org.telegram.telegrambots.meta.TelegramBotsApi;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
@@ -18,13 +21,15 @@ import javax.annotation.PostConstruct;
  *
  * @author Dmitriy G
  */
-@Component
+@Configuration
+@ConfigurationProperties(prefix = "telegram")
+@Slf4j
+@Setter
 public class TelegramBot extends TelegramLongPollingBot {
 
-    //TODO: move to properties
-    private String TELEGRAM_BOT_NAME = "";
-    private String TELEGRAM_BOT_TOKEN = "";
-    private String MESSAGER_TYPE = "Telegram";
+    private String telegramBotName;
+    private String telegramBotToken;
+    private String type;
 
     private ResponseService responseService;
 
@@ -55,7 +60,7 @@ public class TelegramBot extends TelegramLongPollingBot {
         Notification notification = Notification.builder()
                 .channelId(chatId)
                 .messageText(messageText)
-                .type(MESSAGER_TYPE)
+                .type(type)
                 .build();
         responseService.response(notification);
         switch (messageText) {
@@ -83,7 +88,7 @@ public class TelegramBot extends TelegramLongPollingBot {
      */
     @Override
     public String getBotUsername() {
-        return TELEGRAM_BOT_NAME;
+        return telegramBotName;
     }
 
     /**
@@ -93,7 +98,7 @@ public class TelegramBot extends TelegramLongPollingBot {
      */
     @Override
     public String getBotToken() {
-        return TELEGRAM_BOT_TOKEN;
+        return telegramBotToken;
     }
 
     /**
@@ -107,6 +112,8 @@ public class TelegramBot extends TelegramLongPollingBot {
         sendMessage.enableMarkdown(true);
         sendMessage.setChatId(chatId);
         sendMessage.setText(message);
+        log.debug("Chat id = " + chatId);
+        log.debug("Message = " + message);
         execute(sendMessage);
     }
 }

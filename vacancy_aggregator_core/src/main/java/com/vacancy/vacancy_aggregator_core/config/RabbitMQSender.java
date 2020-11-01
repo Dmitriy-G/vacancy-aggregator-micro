@@ -23,6 +23,7 @@ public class RabbitMQSender {
     }
 
     public void send(Notification notification) {
+        log.debug("Notification = " + notification);
         rabbitTemplate.convertAndSend(exchange, routingKey, notification);
     }
 }
