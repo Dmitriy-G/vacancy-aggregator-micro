@@ -1,0 +1,33 @@
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 20000
+
+ribbon:
+  ReadTimeout: 20000
+  ConnectTimeout: 20000
+
+zuul:
+  ignoredServices: '*'
+  host:
+    connect-timeout-millis: 20000
+    socket-timeout-millis: 20000
+
+  routes:
+    auth-service:
+        path: /auth/**
+        url: http://auth-service:5000
+        stripPrefix: false
+        sensitiveHeaders:
+
+    vacancy-aggregator-core:
+        path: /vacancy-aggregator/**
+        serviceId: account-service
+        stripPrefix: false
+        sensitiveHeaders:
+
+server:
+  port: 4000

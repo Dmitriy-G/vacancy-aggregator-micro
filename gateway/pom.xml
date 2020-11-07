@@ -7,21 +7,28 @@
         <artifactId>vacancy-aggregator-micro</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
-    <artifactId>notification_sender</artifactId>
+    <artifactId>gateway</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>notification_sender</name>
-    <description>Service for sending notifications</description>
-    <packaging>jar</packaging>
+    <name>gateway</name>
+    <description>The gateway</description>
 
     <properties>
         <java.version>11</java.version>
         <spring-cloud.version>Hoxton.SR8</spring-cloud.version>
         <sonar.moduleKey>
-            com.vacancy:notification_sender
+            com.vacancy:gateway
         </sonar.moduleKey>
     </properties>
 
     <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-zuul</artifactId>
+        </dependency>
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-config</artifactId>
@@ -33,25 +40,6 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-actuator</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-amqp</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
-        </dependency>
-
-        <!-- https://mvnrepository.com/artifact/org.telegram/telegrambots -->
-        <dependency>
-            <groupId>org.telegram</groupId>
-            <artifactId>telegrambots</artifactId>
-            <version>4.9.1</version>
         </dependency>
 
         <dependency>
@@ -89,25 +77,6 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
-            </plugin>
-            <plugin>
-                <groupId>org.jacoco</groupId>
-                <artifactId>jacoco-maven-plugin</artifactId>
-                <version>0.8.6</version>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>prepare-agent</goal>
-                        </goals>
-                    </execution>
-                    <execution>
-                        <id>report</id>
-                        <phase>test</phase>
-                        <goals>
-                            <goal>report</goal>
-                        </goals>
-                    </execution>
-                </executions>
             </plugin>
         </plugins>
     </build>

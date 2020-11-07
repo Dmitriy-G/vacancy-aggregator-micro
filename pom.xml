@@ -17,7 +17,6 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <spring-cloud.version>Finchley.RELEASE</spring-cloud.version>
         <java.version>11</java.version>
         <sonar.organization>dmitriy-g</sonar.organization>
         <sonar.host.url>https://sonarcloud.io</sonar.host.url>
@@ -38,22 +37,13 @@
         </plugins>
     </build>
 
-    <dependencyManagement>
-        <dependencies>
-            <dependency>
-                <groupId>org.springframework.cloud</groupId>
-                <artifactId>spring-cloud-dependencies</artifactId>
-                <version>${spring-cloud.version}</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-        </dependencies>
-    </dependencyManagement>
-
     <modules>
         <module>auth_service</module>
         <module>notification_sender</module>
         <module>vacancy_aggregator_core</module>
+        <module>config</module>
+        <module>gateway</module>
+        <module>registry</module>
     </modules>
 
 </project>

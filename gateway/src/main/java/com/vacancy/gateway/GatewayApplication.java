@@ -1,17 +1,17 @@
-package com.vacancy.vacancy_aggregator_core;
+package com.vacancy.gateway;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
-import org.springframework.scheduling.annotation.EnableScheduling;
+import org.springframework.cloud.netflix.zuul.EnableZuulProxy;
 
 @SpringBootApplication
 @EnableDiscoveryClient
-@EnableScheduling
-public class VacancyAggregatorCoreApplication {
+@EnableZuulProxy
+public class GatewayApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(VacancyAggregatorCoreApplication.class, args);
+        SpringApplication.run(GatewayApplication.class, args);
     }
 
 }

@@ -1,5 +1,28 @@
 version: '2.2'
 services:
+  config:
+    build: config
+    ports:
+      - "8888:8888"
+    healthcheck:
+      test: ["CMD", "curl", "-f", "config:8888/actuator/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+
+  registry:
+    build: registry
+    ports:
+      - "8761:8761"
+    healthcheck:
+      test: ["CMD", "curl", "-f", "registry:8761/actuator/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+    depends_on:
+      config:
+        condition: service_healthy
+
   rabbitmq:
     image: rabbitmq:management
     ports:
@@ -10,6 +33,7 @@ services:
       interval: 5s
       timeout: 15s
       retries: 10
+
   mongodb:
     image: mongo:latest
     environment:
@@ -48,6 +72,22 @@ services:
     depends_on:
       - keycloakdb
 
+  gateway:
+    build: gateway
+    ports:
+      - "4000:4000"
+    depends_on:
+      registry:
+        condition: service_healthy
+
+  auth_service:
+    build: auth_service
+    ports:
+      - "5000:5000"
+    depends_on:
+        registry:
+          condition: service_healthy
+
   vacancy_aggregator_core:
     build: vacancy_aggregator_core
     ports:
@@ -62,6 +102,9 @@ services:
     depends_on:
       rabbitmq:
         condition: service_healthy
+      registry:
+        condition: service_healthy
+
   notification-sender:
     build: notification_sender
     ports:
@@ -77,6 +120,8 @@ services:
       TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
     depends_on:
       rabbitmq:
+        condition: service_healthy
+      registry:
         condition: service_healthy
 
 volumes:

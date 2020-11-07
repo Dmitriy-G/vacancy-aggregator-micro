@@ -7,16 +7,16 @@
         <artifactId>vacancy-aggregator-micro</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
-    <artifactId>auth_service</artifactId>
+    <artifactId>registry</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>auth_service</name>
-    <description>Authentication service</description>
+    <name>registry</name>
+    <description>The registry</description>
 
     <properties>
         <java.version>11</java.version>
         <spring-cloud.version>Hoxton.SR8</spring-cloud.version>
         <sonar.moduleKey>
-            com.vacancy:auth_service
+            com.vacancy:registry
         </sonar.moduleKey>
     </properties>
 
@@ -34,40 +34,10 @@
             <artifactId>spring-boot-starter-actuator</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-oauth2-resource-server</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-security</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
-        <dependency>
             <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.keycloak</groupId>
-            <artifactId>keycloak-spring-boot-starter</artifactId>
-            <version>11.0.2</version>
-        </dependency>
-        <dependency>
-            <groupId>org.keycloak.bom</groupId>
-            <artifactId>keycloak-adapter-bom</artifactId>
-            <version>11.0.2</version>
-            <type>pom</type>
-            <scope>import</scope>
+            <artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
         </dependency>
 
-
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <optional>true</optional>
-        </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
@@ -78,11 +48,6 @@
                     <artifactId>junit-vintage-engine</artifactId>
                 </exclusion>
             </exclusions>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.security</groupId>
-            <artifactId>spring-security-test</artifactId>
-            <scope>test</scope>
         </dependency>
     </dependencies>
 
@@ -103,25 +68,6 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
-            </plugin>
-            <plugin>
-                <groupId>org.jacoco</groupId>
-                <artifactId>jacoco-maven-plugin</artifactId>
-                <version>0.8.6</version>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>prepare-agent</goal>
-                        </goals>
-                    </execution>
-                    <execution>
-                        <id>report</id>
-                        <phase>test</phase>
-                        <goals>
-                            <goal>report</goal>
-                        </goals>
-                    </execution>
-                </executions>
             </plugin>
         </plugins>
     </build>
